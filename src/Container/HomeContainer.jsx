@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 
 
-const HomeContainer = () => {
+const HomeContainer = ({children}) => {
     return (
-        <div>
-            
+        <div className=" max-w-[1400px] mx-auto">
+            {children}
         </div>
     );
 };

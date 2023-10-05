@@ -5,9 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from "../../assets/media/logo.png"
 import {MdCall} from "react-icons/md"
+import NavContainer from './NavContainer';
 const HomeNavbar = () => {
     return (
-        <div>
+        <NavContainer>
+          <div className='w-full'>
             <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand href="/">
@@ -39,6 +41,7 @@ const HomeNavbar = () => {
       </Container>
     </Navbar>
         </div>
+        </NavContainer>
     );
 };
 
