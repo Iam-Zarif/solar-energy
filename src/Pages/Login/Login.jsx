@@ -1,11 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import logo from "../../assets/media/logo.png"
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
+import gmail from "../../assets/media/google.png"
+import facebook from "../../assets/media/facebook.png"
+import github from "../../assets/media/github (1).png"
+import phone from "../../assets/media/phone-call.png" 
+import {BsExclamationCircle, BsFillArrowLeftCircleFill} from "react-icons/bs"
+import { useContext} from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const navigate = useNavigate();
+const {Login} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -14,12 +23,21 @@ const Login = () => {
   } = useForm();
   console.log(watch("example"));
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    Login(data.email, data.password).then(res => {
+      const user = res.user;
+      console.log(user) ;
+      navigate("/")
+    }).catch(err =>console.log(err))
+    console.log(data)};
   return (
     <>
       <div className="grid lg:grid-cols-2 grid-cols-1 h-screen w-screen">
         {/* photo */}
         <div className="login relative">
+          <div className="absolute top-5 left-4">
+            <Link to="/"><BsFillArrowLeftCircleFill className="text-black" size={30}/></Link>
+          </div>
            <div className="">
            <div className="absolute top-12 left-1/3">
                 <div className="flex items-center"><img src={logo} alt="" />
@@ -34,28 +52,30 @@ const Login = () => {
   className="lg:w-80"
   type="primary"
 > 
-  <span className="text-lg">Sign In with Gmail</span>
+  <span className="text-lg flex gap-3"><img src={gmail} alt="" className="bg-blue-200 rounded-full p-1"/> Sign In with Gmail</span>
 </AwesomeButton>
 <AwesomeButton
   className="lg:w-80"
   type="primary"
 > 
-  <span className="text-lg">Sign In with phone</span>
+  <span className="text-lg flex gap-3"><img src={facebook} alt="" className="bg-blue-200 rounded-full p-1"/> Sign In with Facebook</span>
 </AwesomeButton>
 <AwesomeButton
   className="lg:w-80"
   type="primary"
 > 
-  <span className="text-lg">Sign In with Facebook</span>
+  <span className="text-lg flex gap-3"><img src={github} alt="" className="bg-blue-200 rounded-full p-1"/> Sign In with Github</span>
 </AwesomeButton>
 <AwesomeButton
   className="lg:w-80"
   type="primary"
 > 
-  <span className="text-lg">Sign In with Github</span>
+  <span className="text-lg flex gap-3"><img src={phone} alt="" className="bg-blue-200 rounded-full p-1"/> Sign In with phone</span>
 </AwesomeButton>
+          
 </div>
            </div>
+           <p className="absolute text-white font-semibold bottom-32 px-10">Welcome to Solar Energy Solar Energy! We're thrilled to have you join our community of eco-conscious individuals who are making a positive impact on the planet. Our mission is simple: to harness the boundless power of the sun and provide you with clean, sustainable, and affordable energy solutions.</p>
         </div>
        
         <div>
@@ -72,19 +92,32 @@ const Login = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="lg:mt-20">
-            <div className="flex flex-col ">
+            <div className="flex flex-col gap-3">
             <div className="flex  flex-col gap-3">
-              <input
-                className="shadow-md rounded-md block w-1/2 mx-auto py-2 shadow-slate-500 pl-4"
-                placeholder="Name   "
-                {...register("example", { required: true })}
-              />
-
-              <input
+            <input
+              type="email"
+              name="email"
                 className="shadow-md rounded-md block w-1/2 mx-auto py-2 shadow-slate-500 pl-4"
                 placeholder="email"
-                {...register("exampleRequired", { required: true })}
+                {...register("email", { required: true })}
               />
+            {errors.email && <div className=" text-red-600 text-center flex justify-center items-center gap-1">
+<div><BsExclamationCircle className="mx-auto"/>
+</div>
+    <span>Where is email</span></div>}
+             </div>
+            <div className="text-center">
+            <input
+              type="password"
+              name="password"
+                className="shadow-md rounded-md block w-1/2 mx-auto py-2 shadow-slate-500 pl-4"
+                placeholder="password"
+                {...register("password", { required: true })}
+              />
+           {errors.password && <div className=" text-red-600 text-center flex justify-center items-center gap-1">
+<div><BsExclamationCircle className="mx-auto"/>
+</div>
+    <span>Where is password</span></div>}
             </div>
 
             {errors.exampleRequired && <span>This field is required</span>}

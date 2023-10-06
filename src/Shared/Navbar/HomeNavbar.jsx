@@ -7,7 +7,11 @@ import logo from "../../assets/media/logo.png"
 import {MdCall} from "react-icons/md"
 import NavContainer from './NavContainer';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 const HomeNavbar = () => {
+  const {user} = useContext(AuthContext);
+  console.log(user)
     return (
         <NavContainer>
           <div className='w-full'>
@@ -29,7 +33,11 @@ const HomeNavbar = () => {
             <Nav.Link href="#action2">Contact</Nav.Link>
           </Nav>
           <Form className="d-flex gap-4">
-            <Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link>
+            {
+              user ? <><p>{user.displayName}</p></>
+              :
+              <><Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link></>
+            }
 
             <button className='shadow-md px-4 p-2 border rounded-md'>
               <div className='flex items-center'>

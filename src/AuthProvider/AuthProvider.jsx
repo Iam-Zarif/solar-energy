@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile} from "firebase/auth"
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
@@ -19,8 +19,26 @@ const AuthProvider = ({ children }) => {
    }
 
    const Login =(email, password) =>{
+    setLoader(true)
     return signInWithEmailAndPassword(auth, email, password);
    }
+   const UpdatedUserInfo =(name, photo) =>{
+     return updateProfile(auth.currentUser, {
+       displayName: name,
+       photoURL: photo
+     })
+   }
+   useEffect(() => {
+    
+    const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
+      console.log(loggedUser);
+      setUser(loggedUser);
+      setLoader(false)
+    });
+    return () => {
+      return unsubscribe();
+    };
+  });
     // Email & password
 
 // Google sign in
@@ -31,7 +49,7 @@ const AuthProvider = ({ children }) => {
   Loader,
 createUser,
 Login,
-
+UpdatedUserInfo,
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
