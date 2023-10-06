@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from "../../assets/media/logo.png"
 import {MdCall} from "react-icons/md"
 import NavContainer from './NavContainer';
+import { Link } from 'react-router-dom';
 const HomeNavbar = () => {
     return (
         <NavContainer>
@@ -28,7 +29,7 @@ const HomeNavbar = () => {
             <Nav.Link href="#action2">Contact</Nav.Link>
           </Nav>
           <Form className="d-flex gap-4">
-            <button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button>
+            <Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link>
 
             <button className='shadow-md px-4 p-2 border rounded-md'>
               <div className='flex items-center'>

@@ -4,3 +4,8 @@
 
 
 /*primary-btn =  shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold */
+
+.login{
+    background: rgb(12,103,140);
+background: linear-gradient(90deg, rgba(12,103,140,1) 18%, rgba(9,54,94,1) 83%);
+}
