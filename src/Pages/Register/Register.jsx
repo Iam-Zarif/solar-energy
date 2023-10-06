@@ -146,7 +146,7 @@ const Register = () => {
                 placeholder="Photo url"
                 {...register("photo", { required: true })}
               />
-           {errors.photoURL && <div className=" text-red-600 text-center flex justify-center items-center gap-1">
+           {errors.photo && <div className=" text-red-600 text-center flex justify-center items-center gap-1">
 <div><BsExclamationCircle className="mx-auto"/>
 </div>
     <span>Where is photo Link</span></div>}

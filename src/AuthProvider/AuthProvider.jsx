@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile} from "firebase/auth"
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
@@ -21,6 +21,10 @@ const AuthProvider = ({ children }) => {
    const Login =(email, password) =>{
     setLoader(true)
     return signInWithEmailAndPassword(auth, email, password);
+   }
+   const logOut =() =>{
+    setLoader(true);
+    return signOut(auth);
    }
    const UpdatedUserInfo =(name, photo) =>{
      return updateProfile(auth.currentUser, {
@@ -49,6 +53,7 @@ const AuthProvider = ({ children }) => {
   Loader,
 createUser,
 Login,
+logOut,
 UpdatedUserInfo,
   };
   return (

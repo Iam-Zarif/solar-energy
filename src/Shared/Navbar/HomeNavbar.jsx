@@ -10,8 +10,11 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 const HomeNavbar = () => {
-  const {user} = useContext(AuthContext);
-  console.log(user)
+  const { User, logOut} = useContext(AuthContext);
+  const handleLogOut =() =>{
+    logOut().then(res => console.log(res)).catch(err => console.error(err));
+  }
+  console.log(User)
     return (
         <NavContainer>
           <div className='w-full'>
@@ -31,10 +34,13 @@ const HomeNavbar = () => {
             <Nav.Link href="#action2">Commercial Solar</Nav.Link>
             <Nav.Link href="#action2">Residential Solar</Nav.Link>
             <Nav.Link href="#action2">Contact</Nav.Link>
+            {
+              User && <><Nav.Link className="shadow-md rounded-sm px-3 shadow-sky-800 hover:bg-sky-600 " onClick={handleLogOut}>Log Out</Nav.Link></>
+            }
           </Nav>
           <Form className="d-flex gap-4">
             {
-              user ? <><p>{user.displayName}</p></>
+              User ? <><img src={User.photoURL} className='w-12 h-12 rounded-full' alt="" /></>
               :
               <><Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link></>
             }
