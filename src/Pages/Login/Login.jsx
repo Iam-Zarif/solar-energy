@@ -11,6 +11,7 @@ import phone from "../../assets/media/phone-call.png"
 import {BsExclamationCircle, BsFillArrowLeftCircleFill} from "react-icons/bs"
 import { useContext} from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,13 +26,17 @@ const {Login} = useContext(AuthContext)
 
   const onSubmit = (data) => {
     Login(data.email, data.password).then(res => {
+      toast.success('Successfully Logged In!')
       const user = res.user;
       console.log(user) ;
-      navigate("/")
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
     }).catch(err =>console.log(err))
     console.log(data)};
   return (
     <>
+    <Toaster/>
       <div className="grid lg:grid-cols-2 grid-cols-1 h-screen w-screen">
         {/* photo */}
         <div className="login relative">

@@ -9,14 +9,30 @@ import NavContainer from './NavContainer';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { AwesomeButton } from 'react-awesome-button';
+import { Toaster, toast } from 'react-hot-toast';
 const HomeNavbar = () => {
   const { User, logOut} = useContext(AuthContext);
   const handleLogOut =() =>{
-    logOut().then(res => console.log(res)).catch(err => console.error(err));
+    logOut().then(res =>
+      {
+        toast.success('Logged Out ', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
+        });
+      console.log(res)}).catch(err => console.error(err));
   }
   console.log(User)
     return (
         <NavContainer>
+          <Toaster/>
           <div className='w-full'>
             <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -35,12 +51,12 @@ const HomeNavbar = () => {
             <Nav.Link href="#action2">Residential Solar</Nav.Link>
             <Nav.Link href="#action2">Contact</Nav.Link>
             {
-              User && <><Nav.Link className="shadow-md rounded-sm px-3 shadow-sky-800 hover:bg-sky-600 " onClick={handleLogOut}>Log Out</Nav.Link></>
+              User && <><AwesomeButton><Nav.Link className="" onClick={handleLogOut}> <span className='text-white'>Log Out</span> </Nav.Link></AwesomeButton></>
             }
           </Nav>
           <Form className="d-flex gap-4">
             {
-              User ? <><img src={User.photoURL} className='w-12 h-12 rounded-full' alt="" /></>
+              User ? <><img src={User.photoURL} className='w-12 h-12 rounded-full border-4 border-sky-700' alt="" /></>
               :
               <><Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link></>
             }

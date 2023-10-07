@@ -1,5 +1,6 @@
+import { AwesomeButton } from "react-awesome-button";
 import HomeContainer from "../../Container/HomeContainer";
-
+import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
 const UnderCover = () => {
   return (
     <HomeContainer>
@@ -17,9 +18,13 @@ const UnderCover = () => {
           <p className="text-slate-600 font-semibold">6 Kw</p>
         </div>
         <div>
-        <p className="shadow-md rounded-md   py-3 px-2 lg:px-4 mt-3 text-center bg-sky-700 text-white font-bold lg:py-4 ">
-                Get a Free Quote
-              </p>
+        <div className="text-2xl">
+              <AwesomeButton  cssModule={AwesomeButtonStyles} className="">
+              
+               <span className="text-xl"> Get a Free Quote</span>
+              
+              </AwesomeButton>
+            </div>
         </div>
       </div>
     </HomeContainer>
