@@ -3,6 +3,7 @@ import HomeNavbar from "../../Shared/Navbar/HomeNavbar";
 import Advantages from "../Advantages/Advantages";
 import HomeCover from "../Cover/HomeCover";
 import Features from "../Features/Features";
+import Testimonials from "../Testimonials/Testimonials";
 import ThreeStep from "../ThreeStep/ThreeStep";
 import UnderCover from "../UnderCover/UnderCover";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
@@ -18,6 +19,7 @@ const Home = () => {
             <WhyChooseUs/>
             <ThreeStep/>
             <Features/>
+            <Testimonials/>
             <Footer/>
         </div>
     );
