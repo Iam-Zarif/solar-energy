@@ -3,6 +3,8 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
 import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -21,12 +23,25 @@ const AuthProvider = ({ children }) => {
   const [User, setUser] = useState(null);
   const [Loader, setLoader] = useState(true);
 
+  // Facebook
+  const facebookUser = new FacebookAuthProvider()
+  const facebookSignIn = () =>{
+    setLoader(true);
+    return signInWithPopup(auth, facebookUser);
+  }
+
   // Google
   const googleUser = new GoogleAuthProvider();
   const googleSignIn =() =>{
     setLoader(true)
     return signInWithPopup(auth, googleUser);
   }
+    // Github sign in
+const githubProvider = new GithubAuthProvider()
+const githubSignIn =() =>{
+  setLoader(true);
+  return signInWithPopup(auth,githubProvider)
+}
   // Email & password
   const createUser = (email, password) => {
     setLoader(true);
@@ -59,9 +74,8 @@ const AuthProvider = ({ children }) => {
   });
   // Email & password
 
-  // Google sign in
 
-  // Google sign in
+
   const userInfo = {
     User,
     Loader,
@@ -69,7 +83,9 @@ const AuthProvider = ({ children }) => {
     Login,
     logOut,
     UpdatedUserInfo,
-    googleSignIn
+    googleSignIn,
+    githubSignIn,
+    facebookSignIn
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
