@@ -1,6 +1,6 @@
 
 
-import HomeContainer from "../../Container/HomeContainer";
+import HomeContainer from "../../../Container/HomeContainer";
 import img from "../../assets/media/Icon.png"
 
 const Advantages = () => {

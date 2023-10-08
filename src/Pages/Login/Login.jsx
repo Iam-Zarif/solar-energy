@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import logo from "../../assets/media/logo.png"
 import { useForm } from "react-hook-form";
@@ -9,13 +11,27 @@ import facebook from "../../assets/media/facebook.png"
 import github from "../../assets/media/github (1).png"
 import phone from "../../assets/media/phone-call.png" 
 import {BsExclamationCircle, BsFillArrowLeftCircleFill} from "react-icons/bs"
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
+
+ 
+  
+
   const navigate = useNavigate();
-const {Login} = useContext(AuthContext)
+const {Login, googleSignIn} = useContext(AuthContext)
+const google = () =>{
+  googleSignIn().then(res =>{
+    toast.success('Successfully Logged In with google !')
+    const user = res.user;
+    console.log(user) 
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
+  }).catch(err => console.error(err))
+}
   const {
     register,
     handleSubmit,
@@ -53,12 +69,12 @@ const {Login} = useContext(AuthContext)
 </div>
             </div>
 <div className="lg:top-1/3 left-1/3 absolute flex flex-col gap-3">
-<AwesomeButton
+<span onClick={google}><AwesomeButton
   className="lg:w-80"
   type="primary"
 > 
   <span className="text-lg flex gap-3"><img src={gmail} alt="" className="bg-blue-200 rounded-full p-1"/> Sign In with Gmail</span>
-</AwesomeButton>
+</AwesomeButton></span>
 <AwesomeButton
   className="lg:w-80"
   type="primary"
@@ -141,6 +157,8 @@ const {Login} = useContext(AuthContext)
         </div>
         {/* form */}
       </div>
+      {/* Modal */}
+      
     </>
   );
 };

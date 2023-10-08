@@ -1,9 +1,10 @@
-import NavContainer from "../../Shared/Navbar/NavContainer";
+
 import img1 from "../../assets/media/Icon Colorful.png"
 import img2 from "../../assets/media/Icon Colorful (1).png"
 import img3 from "../../assets/media/Icon Colorful (2).png"
 import img4 from "../../assets/media/Icon Colorful (3).png"
 import { AwesomeButton } from "react-awesome-button";
+import NavContainer from "../../Shared/Navbar/NavContainer";
 
 const Features = () => {
     return (
