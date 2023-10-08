@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Footer from "../../Shared/Footer/Footer";
 import HomeNavbar from "../../Shared/Navbar/HomeNavbar";
 import Advantages from "../Advantages/Advantages";
 import HomeCover from "../Cover/HomeCover";
@@ -10,12 +9,15 @@ import UnderCover from "../UnderCover/UnderCover";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import ContactUs from "../ContactUs/ContactUs";
+import HomeIcons from "../HomeIcons/HomeIcons";
+import HomeFooter from "../../Shared/Footer/HomeFooter";
 
 
 const Home = () => {
     const navigate = useNavigate()
-    const {user} = useContext(AuthContext);
-    if (!user) {
+    const {User} = useContext(AuthContext);
+    if (!User) {
         navigate("/login");
        
       }
@@ -30,7 +32,9 @@ const Home = () => {
             <ThreeStep/>
             <Features/>
             <Testimonials/>
-            <Footer/>
+            <ContactUs/>
+            <HomeIcons/>
+            <HomeFooter/>
         </div>
     );
 };
