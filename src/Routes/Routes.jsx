@@ -4,6 +4,8 @@ import Home from "../Components/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AuthProvider from "../AuthProvider/AuthProvider";
+import ResidentialSolar from "../Pages/ResidentialSolar/ResidentialSolar";
+import RsHome from "../Components/RsHome/RsHome";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,5 +23,11 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
     ],
   },
+  {
+    path: "/residentialSolar", element: <ResidentialSolar/>,
+    children:[
+      { path: "/residentialSolar", element:<RsHome/>}
+    ]
+  }
 ]);
 export default router;

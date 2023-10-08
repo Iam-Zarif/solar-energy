@@ -46,10 +46,10 @@ const HomeNavbar = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Commercial Solar</Nav.Link>
-            <Nav.Link href="#action2">Residential Solar</Nav.Link>
-            <Nav.Link href="#action2">Contact</Nav.Link>
+            <Link  to="/"><Nav.Link>Home</Nav.Link></Link>
+            <Link to="/commercialSolar"><Nav.Link>Commercial Solar</Nav.Link></Link>
+           <Link to="/residentialSolar"> <Nav.Link>Residential Solar</Nav.Link></Link>
+            <Link to="/contact"><Nav.Link>Contact</Nav.Link></Link>
             {
               User && <><AwesomeButton><Nav.Link className="" onClick={handleLogOut}> <span className='text-white'>Log Out</span> </Nav.Link></AwesomeButton></>
             }
