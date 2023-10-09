@@ -25,7 +25,9 @@ const Home = () => {
         <div>
             
             <HomeNavbar/>
+            <div className="pt-24">
             <HomeCover/>
+            </div>
             <UnderCover/>
             <Advantages/>
             <WhyChooseUs/>

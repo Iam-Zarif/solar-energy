@@ -31,10 +31,10 @@ const HomeNavbar = () => {
   }
   console.log(User)
     return (
-        <div className=''>
+        <div className='w-full'>
           <NavContainer>
           <Toaster/>
-          <div className='w-full lg:fixed lg:w-11/12 lg:left-20'>
+          <div className='w-full lg:fixed  lg:left-0 z-50'>
             <Navbar expand="lg" className="bg-body-tertiary ">
       <Container fluid>
         <Navbar.Brand href="/">
