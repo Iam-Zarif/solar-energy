@@ -31,10 +31,11 @@ const HomeNavbar = () => {
   }
   console.log(User)
     return (
-        <NavContainer>
+        <div className=''>
+          <NavContainer>
           <Toaster/>
-          <div className='w-full'>
-            <Navbar expand="lg" className="bg-body-tertiary">
+          <div className='w-full lg:fixed lg:w-11/12 lg:left-20'>
+            <Navbar expand="lg" className="bg-body-tertiary ">
       <Container fluid>
         <Navbar.Brand href="/">
                 <img src={logo} alt="" />
@@ -73,6 +74,7 @@ const HomeNavbar = () => {
     </Navbar>
         </div>
         </NavContainer>
+        </div>
     );
 };
 
