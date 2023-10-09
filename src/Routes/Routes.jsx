@@ -9,14 +9,14 @@ import RsHome from "../Components/RsHome/RsHome";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element:<AuthProvider> <App /> </AuthProvider>,
     children: [
       {
         path: "/",
         element: (
-          <AuthProvider>
+          
             <Home />
-          </AuthProvider>
+          
         ),
       },
       { path: "/login", element: <Login /> },
@@ -24,9 +24,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/residentialSolar", element: <ResidentialSolar/>,
+    path: "/residentialSolar", element: <AuthProvider> <ResidentialSolar /> </AuthProvider>,
     children:[
-      { path: "/residentialSolar", element:<RsHome/>}
+      { path: "/residentialSolar", element:<AuthProvider><RsHome/></AuthProvider>}
     ]
   }
 ]);
