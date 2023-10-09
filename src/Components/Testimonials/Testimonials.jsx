@@ -17,7 +17,7 @@ import img3 from "../../assets/media/Avatar2.png";
 import msgBox from "../../assets/media/speech-bubble(sm).png";
 const Testimonials = () => {
   return (
-    <div className="bg-sky-100 mt-32 h-full py-12">
+    <div className="bg-sky-50 mt-32 h-full py-12">
       
       <HomeContainer>
         <div className="">

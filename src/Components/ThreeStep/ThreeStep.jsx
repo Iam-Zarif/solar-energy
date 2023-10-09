@@ -6,7 +6,7 @@ import img3 from "../../assets/media/Icon (3).png"
 
 const ThreeStep = () => {
     return (
-        <div className="bg-sky-100 mt-20 h-full py-12">
+        <div className="bg-sky-50 mt-20 h-full py-12">
             <HomeContainer>
                 <div className="">
                     <p className="lg:text-xl text-center font-semibold text-sky-600">Let’s Get Started</p>

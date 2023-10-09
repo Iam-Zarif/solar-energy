@@ -6,7 +6,7 @@ import linkedin from "../../assets/media/linkedin.png";
 
 const HomeFooter = () => {
   return (
-    <div className="bg-sky-100 mt-28 pt-20 pb-10">
+    <div className="bg-sky-50 mt-28 pt-20 pb-10">
       <HomeContainer>
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="flex flex-col">
