@@ -8,6 +8,7 @@ import AuthProvider from "../AuthProvider/AuthProvider";
 import ResidentialSolar from "../Pages/ResidentialSolar/ResidentialSolar";
 import RsHome from "../Components/RsHome/RsHome";
 import DynamicProjects from "../Components/RsProjects/DynamicProjects";
+import Contact from "../Pages/Contact/Contact";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      { path: "/contact", element: <Contact/> },
     ],
   },
   {

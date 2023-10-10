@@ -1,25 +1,29 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import TabOne from "./TabOne";
+import TabTwo from "./TabTwo";
+import TabThree from "./TabThree";
 const DynamicProjectTab = ({ data }) => {
     
-  console.log(data);
+
   return (
     <Tabs>
-      <TabList className="w-full flex justify-between lg:text-xl font-bold">
+      <TabList className=" flex justify-between lg:text-xl font-bold">
         <Tab>System Integration & Fabrication</Tab>
         <Tab>Engineering and Design</Tab>
         <Tab>Field Support & Troubleshooting</Tab>
       </TabList>
 <div className="w-full h-1 bg-slate-200"></div>
       <TabPanel>
-        <h2>Any content 1</h2>
+        <TabOne />
       </TabPanel>
       <TabPanel>
-        <h2>Any content 2</h2>
+        <TabTwo />
       </TabPanel>
       <TabPanel>
-        <h2>Any content 3</h2>
+        <TabThree/>
       </TabPanel>
     </Tabs>
   );

@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 const ProjectsCard = ({ project }) => {
-  const { _id, photo1, photo2, read_time, short_description, details_description } =
+  const { _id, photo1, photo2, read_time, short_description, details_description,title } =
     project;
 
   // Split details_description into words using spaces as separators
@@ -47,7 +47,7 @@ const ProjectsCard = ({ project }) => {
               </div>
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              <p className="text-xl font-bold mt-4">{short_description}</p>
+              <p className="text-xl font-bold mt-4">{title}</p>
               <p>{truncatedSentence}</p>
               <p></p>
             </Typography>
