@@ -6,7 +6,8 @@ import linkedin from "../../assets/media/linkedin.png";
 
 const HomeFooter = () => {
   return (
-    <div className="bg-sky-50 mt-28 pt-20 pb-10">
+    <div className="pt-32">
+      <div className="bg-sky-50  pt-20 pb-10">
       <HomeContainer>
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="flex flex-col">
@@ -52,6 +53,7 @@ const HomeFooter = () => {
             <p className="font-semibold text-slate-500 text-center">Copyright © 2023  All right policy reserved</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

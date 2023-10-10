@@ -7,9 +7,10 @@ import Typography from "@mui/material/Typography";
 import { AwesomeButton } from "react-awesome-button";
 import { FiArrowRightCircle } from "react-icons/fi";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const ProjectsCard = ({ project }) => {
-  const { photo1, photo2, read_time, short_description, details_description } =
+  const { _id, photo1, photo2, read_time, short_description, details_description } =
     project;
 
   // Split details_description into words using spaces as separators
@@ -52,6 +53,7 @@ const ProjectsCard = ({ project }) => {
             </Typography>
             <div className="">
               {" "}
+              <Link to={`/residentialSolar/${_id}`}>
               <Button
                 className="text-black flex gap-2 mt-2 w-full"
                 variant="outlined"
@@ -59,6 +61,7 @@ const ProjectsCard = ({ project }) => {
                 <span className="font-semibold">Read More</span>{" "}
                 <FiArrowRightCircle size={20} />
               </Button>
+              </Link>
             </div>{" "}
           </CardContent>
         </Card>

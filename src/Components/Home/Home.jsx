@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import HomeNavbar from "../../Shared/Navbar/HomeNavbar";
 import Advantages from "../Advantages/Advantages";
@@ -17,10 +18,10 @@ import HomeFooter from "../../Shared/Footer/HomeFooter";
 const Home = () => {
     const navigate = useNavigate()
     const {User} = useContext(AuthContext);
-    if (!User) {
-        navigate("/login");
+    // if (!User) {
+    //     navigate("/login");
        
-      }
+    //   }
     return (
         <div>
             
@@ -36,7 +37,7 @@ const Home = () => {
             <Testimonials/>
             <ContactUs/>
             <HomeIcons/>
-            <HomeFooter/>
+            <div className=""><HomeFooter/></div>
         </div>
     );
 };
