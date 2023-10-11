@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form"
 import { MdOutlineErrorOutline } from "react-icons/md";
 import {BiUserCircle} from "react-icons/bi"
 import {AiOutlineMail, AiOutlinePhone} from "react-icons/ai"
+import { Toaster, toast } from "react-hot-toast";
+//import PhoneInput from "react-phone-input-2";
 const ContactForm = () => {
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
       } = useForm()
     
@@ -29,13 +32,15 @@ const ContactForm = () => {
           },
           body: JSON.stringify(feedbackInfo),
         }).then(res => res.json()).then(data => {console.log(data);
-        
+          toast.success('Feedback submitted successfully');
+          reset();
         }).catch(err => {console.log(err);})
       }
     
       console.log(watch("example"))
   return (
     <HomeContainer>
+      <Toaster/>
       <div className="pt-36">
         <div className="relative group">
           <p className="lg:text-2xl font-semibold">Stay Tuned With Us</p>
@@ -56,7 +61,10 @@ const ContactForm = () => {
       <div className="absolute top-0 bg-slate-100 p-1 rounded-md border-3  border-r-violet-950"><AiOutlineMail size={41}/></div>
       </div>
       <div className="col-span-2 relative">
-        <input className="pl-16 w-full font-semibold border-none shadow-md shadow-slate-400 border  h-14" type="text" placeholder="Your Phone Number" name="number" {...register("number", { required: true })} />
+        <input 
+  //       onlyCountries={['gr', 'fr', 'us', 'bd']}
+  // areaCodes={{gr: ['2694', '2647'], fr: ['369', '463'], us: ['300'], bd: ['']}} 
+  className="pl-16 w-full font-semibold border-none shadow-md shadow-slate-400 border  h-14" type="text" placeholder="Your Phone Number" name="number" {...register("number", { required: true })} />
       {errors.number && <span className="flex items-center gap-1 text-red-600"> <MdOutlineErrorOutline/> <span>This field is required</span></span>}
       <div className="absolute top-0 bg-slate-100 p-1 rounded-md border-3  border-r-violet-950"><AiOutlinePhone size={41}/></div>
       </div>

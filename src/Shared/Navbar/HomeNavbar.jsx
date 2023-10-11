@@ -7,11 +7,21 @@ import logo from "../../assets/media/logo.png"
 import {MdCall} from "react-icons/md"
 import NavContainer from './NavContainer';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { AwesomeButton } from 'react-awesome-button';
 import { Toaster, toast } from 'react-hot-toast';
+
+
+//import styles 👇
+import 'react-modern-drawer/dist/index.css'
+import NavDrawer from './NavDrawer';
 const HomeNavbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
+    const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState)
+    }
+
   const { User, logOut} = useContext(AuthContext);
   const handleLogOut =() =>{
     logOut().then(res =>
@@ -50,14 +60,16 @@ const HomeNavbar = () => {
             <Link to="/"><Nav.Link href='/'>Home</Nav.Link></Link>
             <Link to="/commercialSolar"><Nav.Link href='/commercialSolar'>Commercial Solar</Nav.Link></Link>
             <Link to="/residentialSolar"><Nav.Link href='/residentialSolar'>Residential Solar</Nav.Link></Link>
-           <Link to="/contact">  <Nav.Link href='/contact'>Contact</Nav.Link></Link>
+           <Link to="/contact">  <Nav.Link href='/contact'>Feedback</Nav.Link></Link>
+  <NavDrawer isOpen={isOpen} setIsOpen={setIsOpen}/>
+          
             {
               User && <><AwesomeButton><Nav.Link className="" onClick={handleLogOut}> <span className='text-white'>Log Out</span> </Nav.Link></AwesomeButton></>
             }
           </Nav>
           <Form className="d-flex gap-4">
             {
-              User ? <><img src={User.photoURL} className='w-12 h-12 rounded-full border-4 border-sky-700' alt="" /></>
+              User ? <><img src={User.photoURL} onClick={toggleDrawer} className='w-12 h-12 rounded-full border-4 border-sky-700' alt="" /></>
               :
               <><Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link></>
             }

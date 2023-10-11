@@ -8,6 +8,8 @@ import { useContext, useRef } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 const ContactUs = () => {
   // send email
   const form = useRef();
@@ -101,8 +103,8 @@ const ContactUs = () => {
                 <div>
                   <textarea
                     data-tooltip-id="my-tooltip"
-                    data-tooltip-content="Feedback Here"
-                    placeholder="Your Feedback Here" 
+                    data-tooltip-content="Write  Here"
+                    placeholder="Tell us about yourself" 
                     type="text"
                     name="message"
                     className="block  lg:h-40 h-full w-full border-none shadow-md shadow-slate-300 rounded-lg font-bold align-text-top"
