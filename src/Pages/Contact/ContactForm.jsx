@@ -12,12 +12,31 @@ const ContactForm = () => {
         formState: { errors },
       } = useForm()
     
-      const onSubmit = (data) => console.log(data)
+      const onSubmit = (data) => {
+        console.log(data)
+        const name = data.name; 
+        const email = data.email; 
+        const number = data.number; 
+        const feedback = data.feedback;
+        
+        const feedbackInfo = {
+          name, email, number, feedback
+        }
+        fetch("http://localhost:2000/contact", {
+          method: "POST",
+          headers:{
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(feedbackInfo),
+        }).then(res => res.json()).then(data => {console.log(data);
+        
+        }).catch(err => {console.log(err);})
+      }
     
       console.log(watch("example"))
   return (
     <HomeContainer>
-      <div className="pt-32">
+      <div className="pt-36">
         <div className="relative group">
           <p className="lg:text-2xl font-semibold">Stay Tuned With Us</p>
           <div className="lg:w-52 absolute lg:top-9 lg:h-1 bg-sky-700 group-hover:bg-sky-500 duration-300"></div>
@@ -47,7 +66,7 @@ const ContactForm = () => {
       </div>
      </div>
 
-      <button className="mt-5"><AwesomeButton>Submit</AwesomeButton></button>
+      <button className="mt-5 w-full h-full"><AwesomeButton><span className="text-xl">Send Feedback</span></AwesomeButton></button>
     </form>
         </div>
       </div>
