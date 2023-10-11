@@ -9,6 +9,8 @@ import ResidentialSolar from "../Pages/ResidentialSolar/ResidentialSolar";
 import RsHome from "../Components/RsHome/RsHome";
 import DynamicProjects from "../Components/RsProjects/DynamicProjects";
 import Contact from "../Pages/Contact/Contact";
+import AllFeedbacks from "../Pages/AllFeedbacks/AllFeedbacks";
+import UserInfo from "../Pages/UserInfo/UserInfo";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,8 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/contact", element: <Contact/> },
+      { path: "/feedbacks", element: <AllFeedbacks/> },
+      { path: "/userInfo", element: <UserInfo/> },
     ],
   },
   {

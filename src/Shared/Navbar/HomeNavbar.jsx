@@ -9,7 +9,7 @@ import NavContainer from './NavContainer';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { AwesomeButton } from 'react-awesome-button';
+
 import { Toaster, toast } from 'react-hot-toast';
 
 
@@ -61,11 +61,9 @@ const HomeNavbar = () => {
             <Link to="/commercialSolar"><Nav.Link href='/commercialSolar'>Commercial Solar</Nav.Link></Link>
             <Link to="/residentialSolar"><Nav.Link href='/residentialSolar'>Residential Solar</Nav.Link></Link>
            <Link to="/contact">  <Nav.Link href='/contact'>Feedback</Nav.Link></Link>
-  <NavDrawer isOpen={isOpen} setIsOpen={setIsOpen}/>
+  <NavDrawer isOpen={isOpen} setIsOpen={setIsOpen} handleLogOut={handleLogOut}/>
           
-            {
-              User && <><AwesomeButton><Nav.Link className="" onClick={handleLogOut}> <span className='text-white'>Log Out</span> </Nav.Link></AwesomeButton></>
-            }
+           
           </Nav>
           <Form className="d-flex gap-4">
             {
