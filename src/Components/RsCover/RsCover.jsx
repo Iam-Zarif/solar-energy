@@ -14,7 +14,7 @@ const RsCover = () => {
                 <p className="lg:text-7xl font-bold absolute text-white lg:top-52 lg:left-1/3">Residential Solar</p>
                 <button className="absolute top-1/2 lg:left-[820px] text-center"><AwesomeButton className="w-full">View Recipes</AwesomeButton></button>
             </div>
-        <img src={cover} alt="" className="w-full lg:h-[700px]"/>
+        <img src={cover} alt="" className="w-full lg:h-[700px] "/>
        <HomeContainer>
        <div className="flex justify-between absolute top-3/4 left-80">
         <img src={img1} alt="" className=""/>

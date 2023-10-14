@@ -27,7 +27,11 @@ const {User} = useContext(AuthContext)
       <h2>Any content 2</h2>
     </TabPanel>
     <TabPanel>
+
+
      <SubmitInfo/>
+
+     
     </TabPanel>
    </div>
 

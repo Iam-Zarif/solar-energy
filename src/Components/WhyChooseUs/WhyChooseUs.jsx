@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
         <HomeContainer>
             <div className="grid lg:grid-cols-2 grid-cols-1 mt-36">
                 <div>
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className=""/>
                 </div>
                 <div className="mx-auto  ">
                     <p className="lg:text-4xl font-semibold text-sky-600">Why Choose Us?</p>
