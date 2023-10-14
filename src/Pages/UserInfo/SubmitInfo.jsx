@@ -21,12 +21,58 @@ const SubmitInfo = () => {
     if(termsAccepted === false){
         toast.error("Please check the terms")
     }
-    else if(termsAccepted === true){
-        toast.success('Successfully submitted!')
-reset()
+   
+    // console.log(data);
+// image, firstName, date_of_birth, place_of_birth ,email, phone, call, address, City, state, zip, social, url, formCheck
+
+    const firstName = data.firstName;
+    const lastName = data.lastName;
+    const image = data.image;
+    const date_of_birth = data.date_of_birth;
+    const place_of_birth = data.place_of_birth;
+    const phone = data.phone;
+    const call = data.call;
+    const City = data.City;
+    const address = data.address;
+    const state = data.state;
+    const zip = data.zip;
+    const social = data.social;
+    const url = data.url;
+ 
+    // 
+
+    const userInfo = {
+      firstName,
+      lastName,
+      image,
+      date_of_birth,
+      place_of_birth,
+      phone,
+      call,
+      City,
+      address,
+      state,
+      zip,
+      social,
+      url,
+      termsAccepted,
     }
-    console.log(data);
+    console.log(userInfo);
+
+
+    fetch("http://localhost:2000/userInfo", {
+          method: "POST",
+          headers:{
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        }).then(res => res.json()).then(data => {console.log(data);
+          toast.success('Your Informations submitted successfully');
+          reset();
+        }).catch(err => {console.log(err);})
+    
   };
+  
   const handleTermsCheckboxChange = (e) => {
     setTermsAccepted(e.target.checked);
   };
@@ -47,14 +93,14 @@ reset()
               {...register("image", { required: true })}
             />
             {errors.image && (
-              <span className="text-red-600">This field is required</span>
+              <p className="text-red-600 text-center">This field is required</p>
             )}
           </div>
           <div className="col-span-6">
             <input
               className="shadow-md mx-auto w-4/5 border-none block text-lg font-bold rounded-lg shadow-black"
               type="text"
-              name="first name"
+              name="firstName"
               placeholder="First Name"
               {...register("firstName", { required: true })}
             />
@@ -68,7 +114,7 @@ reset()
               className=" shadow-md mx-auto w-4/5 border-none block text-lg font-bold rounded-lg shadow-black"
               placeholder="Last name"
               type="text"
-              name="last name"
+              name="lastName"
               {...register("lastName", { required: true })}
             />
 
@@ -81,7 +127,7 @@ reset()
             <input
               className="shadow-md mx-auto w-4/5 border-none block text-lg font-bold rounded-lg shadow-black"
               type="date"
-              name="date of birth"
+              name="date_of_birth"
               placeholder="date_of_birth"
               {...register("date_of_birth", { required: true })}
             />
@@ -241,6 +287,7 @@ reset()
         </div>
         <div className="col-span-6 lg:mt-28">
           <CFormCheck
+          name="formCheck"
             id="flexCheckDefault"
             label="I have read the terms and conditions"
             onChange={handleTermsCheckboxChange}
