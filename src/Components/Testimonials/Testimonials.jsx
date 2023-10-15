@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 "use client";
 import React, { useRef, useState } from "react";
@@ -17,7 +18,7 @@ import img3 from "../../assets/media/Avatar2.png";
 import msgBox from "../../assets/media/speech-bubble(sm).png";
 const Testimonials = () => {
   return (
-    <div className="bg-sky-50 mt-32 h-full py-12">
+    <div className="bg-sky-50 mt-32 h-full py-12 ">
       
       <HomeContainer>
         <div className="">
@@ -30,90 +31,130 @@ const Testimonials = () => {
         </div>
 
         {/* Carousels */}
-        <div className="mt-36 ">
-          <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+        <div className="mt-20 ">
+          <Swiper pagination={true} modules={[Pagination]} className="mySwiper cursor-grab">
           <SwiperSlide>
-              <div className="grid lg:grid-cols-3 grid-cols-1  lg:pb-20">
-                <div className="flex mx-auto items-center gap-3">
-                <img src={img1} alt="" />
+              <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
+              <div className=" flex content-center items-center gap-3">
+               <div> <img src={img1} alt="" className="lg:w-full"/></div>
                 <div>
-                    <div className="text-xl text-sky-700 ">Grace Hall</div>
-                    <div className="text-slate-700">Founder</div>
-                </div>
-                </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img2} alt="" />
                 <div>
                     <div className="text-xl text-sky-700 ">Connor Walker</div>
                     <div className="text-slate-700">Programmer</div>
                 </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
                 </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img3} alt="" />
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img2} alt="" className="lg:w-full"/></div>
                 <div>
-                    <div className="text-xl text-sky-700 ">Kira Wood</div>
-                    <div className="text-slate-700">Customer</div>
-                </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="grid lg:grid-cols-3 grid-cols-1  lg:pb-20">
-                <div className="flex mx-auto items-center gap-3">
-                <img src={img1} alt="" />
-                <div>
-                    <div className="text-xl text-sky-700 ">Grace Hall</div>
-                    <div className="text-slate-700">Founder</div>
-                </div>
-                </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img2} alt="" />
                 <div>
                     <div className="text-xl text-sky-700 ">Connor Walker</div>
                     <div className="text-slate-700">Programmer</div>
                 </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
                 </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img3} alt="" />
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img3} alt="" className="lg:w-full"/></div>
                 <div>
-                    <div className="text-xl text-sky-700 ">Kira Wood</div>
-                    <div className="text-slate-700">Customer</div>
-                </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="grid lg:grid-cols-3 grid-cols-1  lg:pb-20">
-                <div className="flex mx-auto items-center gap-3">
-                <img src={img1} alt="" />
-                <div>
-                    <div className="text-xl text-sky-700 ">Grace Hall</div>
-                    <div className="text-slate-700">Founder</div>
-                </div>
-                </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img2} alt="" />
                 <div>
                     <div className="text-xl text-sky-700 ">Connor Walker</div>
                     <div className="text-slate-700">Programmer</div>
                 </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
                 </div>
-                <div className="mx-auto flex items-center gap-3">
-                <img src={img3} alt="" />
-                <div>
-                    <div className="text-xl text-sky-700 ">Kira Wood</div>
-                    <div className="text-slate-700">Customer</div>
                 </div>
                 </div>
               </div>
             </SwiperSlide>
-            {/* <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide> */}
+          <SwiperSlide>
+              <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
+              <div className=" flex content-center items-center gap-3">
+               <div> <img src={img1} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img2} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img3} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          <SwiperSlide>
+              <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
+              <div className=" flex content-center items-center gap-3">
+               <div> <img src={img1} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img2} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+                <div className=" flex content-center items-center gap-3">
+               <div> <img src={img3} alt="" className="lg:w-full"/></div>
+                <div>
+                <div>
+                    <div className="text-xl text-sky-700 ">Connor Walker</div>
+                    <div className="text-slate-700">Programmer</div>
+                </div>
+                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
+                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
+                </div>
+                </div>
+                </div>
+              </div>
+            </SwiperSlide>
+           
+            
           </Swiper>
         </div>
         {/* Carousels */}

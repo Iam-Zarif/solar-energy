@@ -6,7 +6,7 @@ import Drawer from 'react-modern-drawer'
 import 'react-modern-drawer/dist/index.css'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import DrawerContainer from './DrawerContainer';
-import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import {AiOutlineArrowRight} from "react-icons/ai"
 import {MdFeedback} from "react-icons/md"
 import {FaCircleUser} from "react-icons/fa6"
@@ -34,11 +34,11 @@ const NavDrawer = ({isOpen,setIsOpen, handleLogOut } ) => {
 
                   <div className='flex flex-col  gap-3 text-xl'>
                   <div className='flex items-center gap-1 group hover:translate-x-1 duration-300'>
-                  <Link to="/userInfo" className='no-underline'><span className='text-black no-underline flex items-center gap-2'><FaCircleUser size={25}/>  <span>Your Info</span></span></Link>
+                  <NavLink activeClassName="active" to="/userInfo" className='nav no-underline'><span className=' text-black  no-underline flex items-center gap-2'><FaCircleUser size={25}/>  <span>Your Info</span></span></NavLink>
                     <AiOutlineArrowRight className='hidden group-hover:block '/>
                   </div>
                   <div className='flex items-center gap-1 group hover:translate-x-1 duration-300'>
-                  <Link to="/feedbacks" className='no-underline'><span className='text-black no-underline flex items-center gap-2'> <MdFeedback size={25}/> <span>Feedbacks</span></span></Link>
+                  <NavLink activeClassName="active" to="/feedbacks" className='nav no-underline'><span className= 'text-black  no-underline flex items-center gap-2'> <MdFeedback size={25}/> <span>Feedbacks</span></span></NavLink>
                     <AiOutlineArrowRight className='hidden group-hover:block '/>
                   </div>
                   </div>

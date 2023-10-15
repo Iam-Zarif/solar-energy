@@ -58,11 +58,11 @@ const HomeNavbar = () => {
             navbarScroll
             // commercialSolar    residentialSolar
           >
-           <NavLink to="/" className="nav" activeClassName="active"> Home</NavLink>
+           <NavLink to="/" className="nav no-underline" activeClassName="active"> Home</NavLink>
            {/* <NavLink to="/commercialSolar" className="nav" activeClassName="active"> commercial Solar</NavLink> */}
-           <NavLink to="/residentialSolar" className="nav" activeClassName="active"> residential Solar</NavLink>
+           <NavLink to="/residentialSolar" className="nav no-underline" activeClassName="active"> residential Solar</NavLink>
            
-          <NavLink to="/contact" className="nav" activeClassName="active"> Feedback</NavLink>
+          <NavLink to="/contact" className="nav no-underline" activeClassName="active"> Feedback</NavLink>
   <NavDrawer isOpen={isOpen} setIsOpen={setIsOpen} handleLogOut={handleLogOut}/>
           
            

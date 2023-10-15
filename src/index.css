@@ -16,11 +16,14 @@ background: linear-gradient(90deg, rgba(12,103,140,1) 18%, rgba(9,54,94,1) 83%);
 }
 
 .nav{
-    background-color: rgb(247, 248, 253);
+    
+    background-color: rgba(245, 245, 245, 0.081);
+    
 }
 .nav.active{
   color: black;
   box-shadow: 1px 1px 1px 1px;
+  
   border-radius: 5px;
   padding: 1px 5px;
 }

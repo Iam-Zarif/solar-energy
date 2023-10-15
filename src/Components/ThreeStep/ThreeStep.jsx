@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import HomeContainer from "../../Container/HomeContainer";
 import img1 from "../../assets/media/Icon (1).png"
@@ -15,22 +16,22 @@ const ThreeStep = () => {
                 <div className="grid lg:grid-cols-3 grid-cols-1 mt-16 gap-8">
                    <div className=" flex flex-col items-center bg-white shadow-md rounded-xl py-12 px-14 relative group">
                    <img src={img1} alt="" />
-                   <p className="text-sky-600 lg:text-4xl font-semibold">1 . Consultation</p>
-                   <p className="font-semibold text-slate-500  text center">Our team will conduct a thorough assessment of your energy needs.</p>
+                   <p className="text-sky-600 lg:text-2xl font-semibold">Design and Planning</p>
+                   <p className="font-semibold text-slate-500  text-justify">This step involves building the actual project. You'd develop the React frontend, create the MongoDB database, and implement the functionality to manage and display solar-related data.</p>
                    <button className="mt-8 underline">Find a Solar - </button>
                    <div className="h-1 absolute bottom-0 w-full group-hover:bg-sky-700 duration-150 transition"></div>
                    </div>
                    <div className=" flex flex-col items-center bg-white shadow-md rounded-xl py-12 px-14 relative group">
                    <img src={img1} alt="" />
-                   <p className="text-sky-600 lg:text-4xl font-semibold">1 . Consultation</p>
-                   <p className="font-semibold text-slate-500  text center">Our team will conduct a thorough assessment of your energy needs.</p>
+                   <p className="text-sky-600 lg:text-2xl font-semibold">Development and Implement</p>
+                   <p className="font-semibold text-slate-500  text-justify">In this step, you would focus on designing the solar project, including the layout, components, and database structure. Planning involves setting objectives and defining the scope of the project.</p>
                    <button className="mt-8 underline">Find a Solar - </button>
                    <div className="h-1 absolute bottom-0 w-full group-hover:bg-sky-700 duration-150 transition"></div>
                    </div>
                    <div className=" flex flex-col items-center bg-white shadow-md rounded-xl py-12 px-14 relative group">
                    <img src={img1} alt="" />
-                   <p className="text-sky-600 lg:text-4xl font-semibold">1 . Consultation</p>
-                   <p className="font-semibold text-slate-500  text center">Our team will conduct a thorough assessment of your energy needs.</p>
+                   <p className="text-sky-600 lg:text-2xl font-semibold">Testing and Deployment</p>
+                   <p className="font-semibold text-slate-500  text-justify">In the final step, you'd thoroughly test the project to ensure it works correctly, is free of bugs, and meets the project's requirements. Once testing is complete, you can deploy the project to make it accessible to users.</p>
                    <button className="mt-8 underline">Find a Solar - </button>
                    <div className="h-1 absolute bottom-0 w-full group-hover:bg-sky-700 duration-150 transition"></div>
                    </div>
