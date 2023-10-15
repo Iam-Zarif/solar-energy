@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from "../../assets/media/logo.png"
 import {MdCall} from "react-icons/md"
 import NavContainer from './NavContainer';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -56,11 +56,13 @@ const HomeNavbar = () => {
             className="mx-auto my-2 my-lg-0 font-semibold flex gap-6"
             style={{ maxHeight: '100px' }}
             navbarScroll
+            // commercialSolar    residentialSolar
           >
-            <Link to="/"><Nav.Link href='/'>Home</Nav.Link></Link>
-            <Link to="/commercialSolar"><Nav.Link href='/commercialSolar'>Commercial Solar</Nav.Link></Link>
-            <Link to="/residentialSolar"><Nav.Link href='/residentialSolar'>Residential Solar</Nav.Link></Link>
-           <Link to="/contact">  <Nav.Link href='/contact'>Feedback</Nav.Link></Link>
+           <NavLink to="/" className="nav" activeClassName="active"> Home</NavLink>
+           {/* <NavLink to="/commercialSolar" className="nav" activeClassName="active"> commercial Solar</NavLink> */}
+           <NavLink to="/residentialSolar" className="nav" activeClassName="active"> residential Solar</NavLink>
+           
+          <NavLink to="/contact" className="nav" activeClassName="active"> Feedback</NavLink>
   <NavDrawer isOpen={isOpen} setIsOpen={setIsOpen} handleLogOut={handleLogOut}/>
           
            

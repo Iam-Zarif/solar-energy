@@ -4,9 +4,20 @@ import { AwesomeButton } from "react-awesome-button";
 import HomeContainer from "../../Container/HomeContainer";
 import img from "../../assets/media/cover-photo.png";
 import play from "../../assets/media/play.png";
+import React from 'react';
+import VideoModal from './VideoModal';
+
 const HomeCover = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  
+
   return (
     <HomeContainer>
+      <VideoModal open={open} handleClose={handleClose} aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"/>
       <div className="flex lg:flex-row flex-col items-center justify-between">
         <div>
           <p className="lg:text-5xl text-2xl font-bold">
@@ -23,9 +34,13 @@ const HomeCover = () => {
               
               </AwesomeButton>
             </div>
+{/*  */}
 
+      
+{/*  */}
             <div>
-              <img src={play} alt="play btn" className="lg:w-full w-1/2" />
+              <img onClick={handleOpen} src={play} alt="play btn" className="cursor-pointer lg:w-full w-1/2" />
+
             </div>
           </div>
         </div>
