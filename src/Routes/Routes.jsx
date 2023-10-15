@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../Components/Home/Home";
@@ -11,34 +10,57 @@ import DynamicProjects from "../Components/RsProjects/DynamicProjects";
 import Contact from "../Pages/Contact/Contact";
 import AllFeedbacks from "../Pages/AllFeedbacks/AllFeedbacks";
 import UserInfo from "../Pages/UserInfo/UserInfo";
+import AdvantagesDynamicPage from "../Components/Advantages/AdvantagesDynamicPage";
 const router = createBrowserRouter([
   {
+    path: "/*",
+    element: <div>Error hayhay</div>,
+  },
+  {
     path: "/",
-    element: <App /> ,
+    element: <App />,
     children: [
       {
         path: "/",
         element: (
           <AuthProvider>
             <Home />
-            </AuthProvider>
+          </AuthProvider>
         ),
+      },
+      {
+        path: "/benefits/:id",
+        element: <AdvantagesDynamicPage/>,
+        loader: ({params})  => 
+        fetch(`http://localhost:2000/benefits/${params.id}`)
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
-      { path: "/contact", element: <Contact/> },
-      { path: "/feedbacks", element: <AllFeedbacks/> },
-      { path: "/userInfo", element: <UserInfo/> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/feedbacks", element: <AllFeedbacks /> },
+      { path: "/userInfo", element: <UserInfo /> },
     ],
   },
   {
-    path: "/residentialSolar", element:  <ResidentialSolar />,
-    children:[
-      { path: "/residentialSolar", element:<AuthProvider><RsHome/></AuthProvider>},
-      {path: "/residentialSolar/:id", element:<DynamicProjects/>,
-    loader:({params})=> fetch(`http://localhost:2000/projects/${params.id}`)
-    }
-    ]
-  }
+    path: "/residentialSolar",
+    element: <ResidentialSolar />,
+    children: [
+      {
+        path: "/residentialSolar",
+        element: (
+          <AuthProvider>
+            <RsHome />
+          </AuthProvider>
+        ),
+      },
+      {
+        path: "/residentialSolar/:id",
+        element: <DynamicProjects />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:2000/projects/${params.id}`),
+      },
+     
+    ],
+  },
 ]);
 export default router;

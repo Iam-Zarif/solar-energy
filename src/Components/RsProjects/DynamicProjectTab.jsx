@@ -17,7 +17,7 @@ const DynamicProjectTab = ({ data }) => {
       </TabList>
 <div className="w-full h-1 bg-slate-200"></div>
       <TabPanel>
-        <TabOne />
+        <TabOne/>
       </TabPanel>
       <TabPanel>
         <TabTwo />

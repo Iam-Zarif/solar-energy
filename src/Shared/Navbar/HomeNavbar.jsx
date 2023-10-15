@@ -67,7 +67,7 @@ const HomeNavbar = () => {
           </Nav>
           <Form className="d-flex gap-4">
             {
-              User ? <><img src={User.photoURL} onClick={toggleDrawer} className='w-12 h-12 rounded-full border-4 border-sky-700' alt="" /></>
+              User ? <><img src={User.photoURL} onClick={toggleDrawer} className='cursor-pointer w-12 h-12 rounded-full border-4 border-sky-700' alt="" /></>
               :
               <><Link to="/login"><button className='shadow-md rounded-md px-4 py-2 bg-sky-700 text-white font-semibold'>Login</button></Link></>
             }

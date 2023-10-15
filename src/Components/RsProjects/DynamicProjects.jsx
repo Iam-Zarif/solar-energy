@@ -42,10 +42,10 @@ const DynamicProjects = () => {
         </div>
         <div>
           <p className="mt-8 text-xl font-bold">{short_description}</p>
-          <p className="mt-5 font-semibold text-slate-500">
+          <p className="mt-5 font-semibold text-slate-500 text-justify">
             {details_description}. {details_description}. {details_description}
           </p>
-          <p className="font-semibold text-slate-500 mt-5">
+          <p className="font-semibold text-slate-500 mt-5 text-justify">
             {details_description}
           </p>
         </div>
