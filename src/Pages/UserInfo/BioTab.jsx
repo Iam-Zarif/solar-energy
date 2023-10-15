@@ -3,8 +3,10 @@ import {BiSolidUserCircle} from "react-icons/bi"
 import  {FaIdCardClip} from "react-icons/fa6"
 import {GoDiscussionOutdated} from "react-icons/go"
 const BioTab = ({User}) => {
+
     return (
         <div>
+            
              <div>
         <div className='flex items-center gap-1 text-lg font-semibold'>
             <BiSolidUserCircle size={32}/>
@@ -24,3 +26,4 @@ const BioTab = ({User}) => {
 };
 
 export default BioTab;
+

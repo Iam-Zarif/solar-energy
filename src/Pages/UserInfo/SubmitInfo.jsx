@@ -15,7 +15,7 @@ const SubmitInfo = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm();  
   const onSubmit = (data) => {
     data.termsAccepted = termsAccepted;
     if(termsAccepted === false){
@@ -27,6 +27,7 @@ const SubmitInfo = () => {
 
     const firstName = data.firstName;
     const lastName = data.lastName;
+    const email = data.email;
     const image = data.image;
     const date_of_birth = data.date_of_birth;
     const place_of_birth = data.place_of_birth;
@@ -42,6 +43,7 @@ const SubmitInfo = () => {
     // 
 
     const userInfo = {
+      email,
       firstName,
       lastName,
       image,

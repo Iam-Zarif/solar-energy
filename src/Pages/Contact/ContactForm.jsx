@@ -25,7 +25,7 @@ const ContactForm = () => {
         const feedbackInfo = {
           name, email, number, feedback
         }
-        fetch("http://localhost:2000/contact", {
+        fetch("http://localhost:2000/feedback", {
           method: "POST",
           headers:{
             "content-type": "application/json",

@@ -6,9 +6,21 @@ import HomeContainer from "../../Container/HomeContainer";
 import { Tooltip } from "react-tooltip";
 import {RxCross1} from "react-icons/rx"
 import InfoTabs from "./InfoTabs";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Infos = ({User}) => {
-    console.log(User?.emailVerified)
+    const [UserInfo, setUserInfo] = useState("");
+    useEffect(() => {
+      fetch("http://localhost:2000/userInfo")
+        .then((res) => res.json())
+        .then((data) => {
+          setUserInfo(data);
+          console.log(data);
+        });
+    }, []);
+
+    console.log(UserInfo)
     
     return (
         <HomeContainer>
@@ -24,7 +36,7 @@ const Infos = ({User}) => {
                  <p>Email Verification: </p>
                <p>
                 {
-                    User?.emailVerified === true ? <><p className="shadow rounded-xl px-3 py-0.5 bg-green-500 text-white pb-1 flex items-center gap-1"><AiOutlineCheckCircle/> <span>Yes</span></p></>
+                    User?.emailVerified === true  ? <><p className="shadow rounded-xl px-3 py-0.5 bg-green-500 text-white pb-1 flex items-center gap-1"><AiOutlineCheckCircle/> <span>Yes</span></p></>
                     :
                     <><p className="shadow rounded-xl px-3 py-0.5 bg-red-500 text-white pb-1 flex items-center gap-1"><RxCross1/> <span>No</span></p></>
                 }
