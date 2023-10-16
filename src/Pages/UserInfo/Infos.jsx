@@ -16,7 +16,7 @@ const Infos = ({User}) => {
         .then((res) => res.json())
         .then((data) => {
           setUserInfo(data);
-          console.log(data);
+        //   console.log(data);
         });
     }, []);
 

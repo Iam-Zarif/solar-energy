@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/contact", element: <Contact /> },
       { path: "/feedbacks", element: <AllFeedbacks /> },
-      { path: "/userInfo", element: <UserInfo /> },
+      { path: "/userInfo", element: <UserInfo /> ,},
     ],
   },
   {
