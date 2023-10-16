@@ -24,10 +24,8 @@ const Advantages = () => {
             Benefits Of Going Solar
           </p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-x-24 grid-cols-1 mt-14">
-          {Benefits.map((benefit) => {
-            console.log(benefit);
-          })}
+        <div className="grid lg:grid-cols-3 gap-x-24 grid-cols-1 mt-14 ">
+       
 
           {
             Benefits.map((benefit) =>{
