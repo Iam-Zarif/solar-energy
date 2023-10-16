@@ -39,7 +39,7 @@ const HomeNavbar = () => {
         });
       console.log(res)}).catch(err => console.error(err));
   }
-  console.log(User)
+  // console.log(User)
     return (
         <div className='w-full'>
           <NavContainer>

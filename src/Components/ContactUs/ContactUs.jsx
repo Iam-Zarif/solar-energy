@@ -44,7 +44,6 @@ const ContactUs = () => {
   } = useForm();
 
 
-  console.log(watch("example"));
   return (
     <NavContainer>
       <div className="mt-28">

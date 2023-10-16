@@ -6,10 +6,15 @@ import { BsFacebook } from "react-icons/bs";
 import { Tooltip } from "react-tooltip";
 import "@coreui/coreui/dist/css/coreui.min.css";
 import { CFormCheck } from "@coreui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const SubmitInfo = () => {
+  const {User} = useContext(AuthContext); 
         const [termsAccepted, setTermsAccepted] = useState(false);
+        const [mail, setmail] = useState("");
+        const [message, setMessage] = useState("");
+       
   const {
     register,
     handleSubmit,
@@ -17,11 +22,20 @@ const SubmitInfo = () => {
     formState: { errors },
   } = useForm();  
   const onSubmit = (data) => {
-    data.termsAccepted = termsAccepted;
-    if(termsAccepted === false){
-        toast.error("Please check the terms")
+    const regEx = /[a-zA-A0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])/g
+    if(regEx.test(mail)){
+      console.log("Ji")
+      setMessage("Email is valid")
     }
-   
+    else if(!regEx.test(mail) && mail !== ""){
+      toast.error("email is not valid");
+      return
+    }
+    else{
+      setMessage(" ")
+    }
+    data.termsAccepted = termsAccepted;
+    
     // console.log(data);
 // image, firstName, date_of_birth, place_of_birth ,email, phone, call, address, City, state, zip, social, url, formCheck
 
@@ -59,9 +73,7 @@ const SubmitInfo = () => {
       url,
       termsAccepted,
     }
-    console.log(userInfo);
-
-
+    
     fetch("http://localhost:2000/userInfo", {
           method: "POST",
           headers:{
@@ -69,15 +81,36 @@ const SubmitInfo = () => {
           },
           body: JSON.stringify(userInfo),
         }).then(res => res.json()).then(data => {console.log(data);
+
+        
+
+
+
+          if(termsAccepted === false){
+            toast.error("Please check the terms");
+            return;
+        }
+        else if(User.email !== email){
+         toast.error("Please Give valid email address");
+         return;
+        }
+        else if(!User || !User.email){
           toast.success('Your Informations submitted successfully');
-          reset();
+        }
+       else if(termsAccepted === true){
+        toast.success('Your Informations submitted successfully');
+        reset();
+       }
+         
         }).catch(err => {console.log(err);})
     
   };
   
   const handleTermsCheckboxChange = (e) => {
     setTermsAccepted(e.target.checked);
+    setmail(e.target.value);
   };
+ 
   return (
     <div className="border lg:py-10 lg:px-10 border-slate-600 rounded-xl">
         <Toaster/>
@@ -288,19 +321,21 @@ const SubmitInfo = () => {
           </div>
         </div>
         <div className="col-span-6 lg:mt-28">
-          <CFormCheck
+          <input type="checkbox"
           name="formCheck"
             id="flexCheckDefault"
             label="I have read the terms and conditions"
             onChange={handleTermsCheckboxChange}
-          />
+          /> <span>I have read the terms and conditions</span>
         </div>
         <button
+        
           className="block bg-sky-600 text-white py-3 w-full mt-4 rounded-xl text-xl font-bold "
           type="Submit "
         >
           Submit
         </button>
+        <p>{message}</p>
       </form>
     </div>
   );

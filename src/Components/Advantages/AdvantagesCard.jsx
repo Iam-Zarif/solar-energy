@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AdvantagesCard = ({benefit}) => {
     const {_id, title, short_description, image} = benefit; 
-    console.log(_id);
+    // console.log(_id);
     return (
         <div className="group ">
             <div  className="flex flex-col items-center rounded-xl shadow-md shadow-slate-400 hover:duration-300 hover:ease-in-out group-hover:border-b-4 group-hover:border-b-black lg:pb-10 pb-6">

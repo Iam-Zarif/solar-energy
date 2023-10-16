@@ -20,7 +20,7 @@ const Infos = ({User}) => {
         });
     }, []);
 
-    console.log(UserInfo)
+    // console.log(UserInfo)
     
     return (
         <HomeContainer>
