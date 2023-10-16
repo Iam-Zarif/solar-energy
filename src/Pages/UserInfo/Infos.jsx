@@ -21,7 +21,11 @@ const Infos = ({User}) => {
     }, []);
 
     // console.log(UserInfo)
+    const [mail, setmail] = useState("");
+        const [message, setMessage] = useState("");
+   const regEx = /[a-zA-A0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])/g
     
+   
     return (
         <HomeContainer>
             <div className="pt-36 flex gap-5">
@@ -43,6 +47,7 @@ const Infos = ({User}) => {
                </p>
              
                  </div>
+                 
                 </div>
                 
             </div>

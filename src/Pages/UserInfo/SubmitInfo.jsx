@@ -15,6 +15,7 @@ const SubmitInfo = () => {
         const [mail, setmail] = useState("");
         const [message, setMessage] = useState("");
        
+        const regEx = /[a-zA-A0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])/g
   const {
     register,
     handleSubmit,
@@ -22,19 +23,17 @@ const SubmitInfo = () => {
     formState: { errors },
   } = useForm();  
   const onSubmit = (data) => {
-    const regEx = /[a-zA-A0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])/g
+    data.termsAccepted = termsAccepted;
+   
     if(regEx.test(mail)){
       console.log("Ji")
       setMessage("Email is valid")
     }
-    else if(!regEx.test(mail) && mail !== ""){
-      toast.error("email is not valid");
-      return
-    }
+     
     else{
       setMessage(" ")
     }
-    data.termsAccepted = termsAccepted;
+   
     
     // console.log(data);
 // image, firstName, date_of_birth, place_of_birth ,email, phone, call, address, City, state, zip, social, url, formCheck
@@ -73,7 +72,15 @@ const SubmitInfo = () => {
       url,
       termsAccepted,
     }
+    if(termsAccepted === false){
+      toast.error("Please check the terms");
+      return;
+  }
     
+  if(User.email !== email){
+    toast.error("Please Give valid email address");
+    return;
+   }
     fetch("http://localhost:2000/userInfo", {
           method: "POST",
           headers:{
@@ -82,19 +89,9 @@ const SubmitInfo = () => {
           body: JSON.stringify(userInfo),
         }).then(res => res.json()).then(data => {console.log(data);
 
+          
         
-
-
-
-          if(termsAccepted === false){
-            toast.error("Please check the terms");
-            return;
-        }
-        else if(User.email !== email){
-         toast.error("Please Give valid email address");
-         return;
-        }
-        else if(!User || !User.email){
+       if(!User || !User.email){
           toast.success('Your Informations submitted successfully');
         }
        else if(termsAccepted === true){
@@ -102,7 +99,13 @@ const SubmitInfo = () => {
         reset();
        }
          
-        }).catch(err => {console.log(err);})
+        }).catch(err => {
+          if(!regEx.test(mail) && mail !== ""){
+            toast.error("email is not valid");
+            return
+          }
+        
+          console.log(err);})
     
   };
   
@@ -116,7 +119,7 @@ const SubmitInfo = () => {
         <Toaster/>
       <Tooltip id="my-tooltip" />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid lg:grid-cols-12 lg:gap-y-12">
+        <div className="grid lg:grid-cols-12 lg:gap-y-6">
           <div className="col-span-12">
             <input
               data-tooltip-id="my-tooltip"
@@ -320,7 +323,7 @@ const SubmitInfo = () => {
             )}
           </div>
         </div>
-        <div className="col-span-6 lg:mt-28">
+        <div className="col-span-6 lg:mt-12">
           <input type="checkbox"
           name="formCheck"
             id="flexCheckDefault"
