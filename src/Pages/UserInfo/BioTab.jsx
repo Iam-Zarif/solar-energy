@@ -1,22 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import {BiSolidUserCircle} from "react-icons/bi"
 import  {FaIdCardClip} from "react-icons/fa6"
 import {GoDiscussionOutdated} from "react-icons/go"
-const BioTab = ({User, UserInfoEmail}) => {
+const BioTab = ({User, UserInfo}) => {
     // console.log(UserInfoEmail[1]?.email)
-    
-   
-    const [UserInfo, setUserInfo] = useState([]);
     // console.log(UserInfo)
-    useEffect(() => {
-      fetch(`http://localhost:2000/userInfoEmail?email=${UserInfoEmail[1]?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setUserInfo(data);
-        //   console.log(UserInfo);
-        });
-    }, [ UserInfoEmail ]);
+   
+  
+  
 
     return (
         <div>

@@ -5,46 +5,58 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import BioTab from './BioTab';
 import SubmitInfo from './SubmitInfo';
 
-
 const InfoTabs = () => {
-const {User} = useContext(AuthContext)
-const [UserInfoEmail, setUserInfoEmail] = useState("");
-useEffect(() => {
-  fetch(`http://localhost:2000/userInfoEmail`)
-    .then((res) => res.json())
-    .then((data) => {
+  const { User } = useContext(AuthContext);
+  const [UserInfoEmail, setUserInfoEmail] = useState([]);
+  const [UserInfo, setUserInfo] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:2000/userInfoEmail`)
+      .then((res) => res.json())
+      .then((data) => {
         setUserInfoEmail(data);
-      // console.log(UserInfoEmail);
-    });
-}, [UserInfoEmail]);
-    return (
-        <div className='mt-32'>
-              <Tabs className="w-full">
-    <TabList className="w-full flex justify-evenly text-xl font-bold">
-      <Tab>Bio</Tab>
-      <Tab>My Feedbacks</Tab>
-      <Tab>Submit Info</Tab>
-    </TabList>
-<div className='w-full h-1 bg-sky-700'></div>
-   <div className='mt-10'>
-   <TabPanel>
-     <BioTab User={User} UserInfoEmail={UserInfoEmail}/>
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-    </TabPanel>
-    <TabPanel>
+      });
+  }, []);
 
+  useEffect(() => {
+    if (UserInfoEmail.length > 0) {
+      const matchingUser = UserInfoEmail.find(
+        (user) => user.email === User?.email
+      );
+      
+      if (matchingUser) {
+        fetch(`http://localhost:2000/userInfoEmail?email=${matchingUser.email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setUserInfo(data);
+          });
+      }
+    }
+  }, [UserInfoEmail, User]);
 
-     <SubmitInfo/>
-
-     
-    </TabPanel>
-   </div>
-
-  </Tabs>
+  return (
+    <div className="mt-32">
+      <Tabs className="w-full">
+        <TabList className="w-full flex justify-evenly text-xl font-bold">
+          <Tab>Bio</Tab>
+          <Tab>My Feedbacks</Tab>
+          <Tab>Submit Info</Tab>
+        </TabList>
+        <div className="w-full h-1 bg-sky-700"></div>
+        <div className="mt-10">
+          <TabPanel>
+            <BioTab User={User} UserInfo={UserInfo} />
+          </TabPanel>
+          <TabPanel>
+            <h2>Any content 2</h2>
+          </TabPanel>
+          <TabPanel>
+            <SubmitInfo />
+          </TabPanel>
         </div>
-    );
+      </Tabs>
+    </div>
+  );
 };
 
 export default InfoTabs;
