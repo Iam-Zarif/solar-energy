@@ -1,11 +1,15 @@
 import HomeContainer from "../../Container/HomeContainer";
 import img from "../../assets/media/Rectangle 3.png"
 import icon from "../../assets/media/check (1).png"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 
 const WhyChooseUs = () => {
     return (
         <HomeContainer>
-            <div className="grid lg:grid-cols-2 grid-cols-1 mt-36">
+            <div className="grid lg:grid-cols-2 grid-cols-1 mt-36" data-aos="fade-right">
                 <div>
                     <img src={img} alt="" className=""/>
                 </div>

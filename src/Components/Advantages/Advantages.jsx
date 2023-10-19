@@ -16,7 +16,7 @@ const Advantages = () => {
  
   return (
     <HomeContainer>
-      <div className="mt-24   ">
+      <div className="mt-24" data-aos="fade-left">
         <div>
           {" "}
           <p className="text-center lg:text-2xl text-sky-600">ADVANTAGES</p>

@@ -8,8 +8,8 @@ import NavContainer from "../../Shared/Navbar/NavContainer";
 
 const Features = () => {
     return (
-        <NavContainer>
-        <div className="py-10">
+        <div data-aos="fade-left"><NavContainer >
+        <div className="py-10" >
         <p className="text-center lg:text-4xl font-bold"> Features</p>
         </div>
         <div className="grid lg:grid-cols-4 grid-cols-1">
@@ -38,7 +38,7 @@ const Features = () => {
                 <AwesomeButton className="mt-5 w-full">Read More</AwesomeButton>
             </div>
         </div>
-        </NavContainer>
+        </NavContainer></div>
     );
 };
 
