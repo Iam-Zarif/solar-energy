@@ -11,4 +11,4 @@ Server Repo = https://github.com/Iam-Zarif/solar-energy-server <br/>
 ```
 
 ## homePage(Not completed yet)
-<img src ="https://i.ibb.co/d0ybypw/newHome2.jpg" alt="Home Page Photo"  />
+<img src ="https://i.ibb.co/HY7jwWt/newHome.jpg" alt="Home Page Photo"  />
