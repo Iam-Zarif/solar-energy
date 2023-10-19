@@ -16,7 +16,19 @@ import img1 from "../../assets/media/Avatar.png";
 import img2 from "../../assets/media/Avatar1.png";
 import img3 from "../../assets/media/Avatar2.png";
 import msgBox from "../../assets/media/speech-bubble(sm).png";
+import { useEffect } from "react";
+import DynamicTestimonials1 from "./DynamicTestimonials1";
+
 const Testimonials = () => {
+  const [feedbacks, setfeedbacks] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:2000/feedback")
+      .then((res) => res.json())
+      .then((data) => {
+        setfeedbacks(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <div className="bg-sky-50 mt-32 h-full py-12 ">
       
@@ -35,122 +47,42 @@ const Testimonials = () => {
           <Swiper pagination={true} modules={[Pagination]} className="mySwiper cursor-grab">
           <SwiperSlide>
               <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
-              <div className=" flex content-center items-center gap-3" data-aos="fade-up">
-               <div> <img src={img1} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md bg-slate-50  rounded-l-xl shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div className=" flex content-center items-center gap-3">
-               <div> <img src={img2} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md bg-slate-50 rounded-xl  shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div data-aos="fade-right" className=" flex content-center items-center gap-3">
-               <div> <img src={img3} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md bg-slate-50  rounded-r-xl shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
+
+             {feedbacks.slice(3, 6).map((Feedback) =>{
+              return(
+                <DynamicTestimonials1 key={Feedback._id} Feedback={Feedback}/>
+              )
+             })}
+
+               
+               
               </div>
             </SwiperSlide>
-          <SwiperSlide>
+          
+            <SwiperSlide>
               <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
-              <div className=" flex content-center items-center gap-3">
-               <div> <img src={img1} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div className=" flex content-center items-center gap-3">
-               <div> <img src={img2} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div className=" flex content-center items-center gap-3">
-               <div> <img src={img3} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
+
+             {feedbacks.slice(6, 9).map((Feedback) =>{
+              return(
+                <DynamicTestimonials1 key={Feedback._id} Feedback={Feedback}/>
+              )
+             })}
+
+               
+               
               </div>
             </SwiperSlide>
-          <SwiperSlide>
+            <SwiperSlide>
               <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
-              <div className=" flex content-center items-center gap-3">
-               <div> <img src={img1} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div className=" flex content-center items-center gap-3">
-               <div> <img src={img2} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
-                <div className=" flex content-center items-center gap-3">
-               <div> <img src={img3} alt="" className="lg:w-full"/></div>
-                <div>
-                <div>
-                    <div className="text-xl text-sky-700 ">Connor Walker</div>
-                    <div className="text-slate-700">Programmer</div>
-                </div>
-                <div className="absolute lg:w-1/4 mt-3 shadow-md shadow-slate-400 lg:px-12 py-6">
-                 <p>"I'm delighted with the solar installation from this company. Not only is our home now energy-efficient, but our electricity bills have significantly dropped. Great work!"</p>
-                </div>
-                </div>
-                </div>
+
+             {feedbacks.slice(0, 3).map((Feedback) =>{
+              return(
+                <DynamicTestimonials1 key={Feedback._id} Feedback={Feedback}/>
+              )
+             })}
+
+               
+               
               </div>
             </SwiperSlide>
            
