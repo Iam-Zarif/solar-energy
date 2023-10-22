@@ -9,7 +9,7 @@ AOS.init();
 const WhyChooseUs = () => {
     return (
         <HomeContainer>
-            <div className="grid lg:grid-cols-2 grid-cols-1 mt-36" data-aos="fade-right">
+            <div className="grid lg:grid-cols-2 grid-cols-1 mt-36" data-aos="fade-down">
                 <div>
                     <img src={img} alt="" className=""/>
                 </div>

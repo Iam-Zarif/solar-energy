@@ -8,7 +8,7 @@ import NavContainer from "../../Shared/Navbar/NavContainer";
 
 const Features = () => {
     return (
-        <div data-aos="fade-left"><NavContainer >
+        <div data-aos="fade-down"><NavContainer >
         <div className="py-10" >
         <p className="text-center lg:text-4xl font-bold"> Features</p>
         </div>

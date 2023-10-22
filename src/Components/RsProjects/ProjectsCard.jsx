@@ -35,9 +35,9 @@ const ProjectsCard = ({ project }) => {
             image={photo2}
             title="green iguana"
           />
-          <CardContent>
-            <Typography gutterBottom component="div">
-              <div className="flex gap-3 items-center">
+          <CardContent className="">
+            <Typography gutterBottom component="div" className="">
+              <div className="flex gap-3 items-center ">
                 <button className="">
                   <AwesomeButton className="">Solar</AwesomeButton>
                 </button>

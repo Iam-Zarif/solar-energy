@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 
-import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
-const DynamicTestimonials1 = ({Feedback}) => {
-    const {User} = useContext(AuthContext)
+
+const DynamicTestimonials1 = ({Feedback, UserInfo}) => {
+ 
+    
     const {name, occupation, feedback} = Feedback;
     return (
-        <div className=" flex content-center items-center" data-aos="fade-up">
+        <div className=" flex content-center items-center gap-3" data-aos="fade-down">
             {/* The image is not completed yet */}
-               <div> <img  src={User?.photoURL} className="lg:w-1/2 rounded-full"/></div>
+               <div> <img  src={UserInfo?.image} className="lg:w-14 lg:h-14 w-8 border-4 border-sky-700  rounded-full"/></div>
                 <div>
                 <div>
                     <div className="text-xl text-sky-700 ">{name}</div>

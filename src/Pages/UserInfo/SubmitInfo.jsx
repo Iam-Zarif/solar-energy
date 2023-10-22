@@ -125,7 +125,7 @@ const SubmitInfo = () => {
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Choose your Image"
               className="shadow-md mx-auto w-1/3 border-none block text-lg font-bold rounded-lg shadow-black"
-              type="file"
+              type="url"
               name="image"
               placeholder="Image Link"
               {...register("image", { required: true })}
@@ -314,11 +314,11 @@ const SubmitInfo = () => {
               className=" shadow-md w-full lg:w-11/12 mx-auto border-none block text-lg font-bold rounded-lg shadow-black"
               placeholder="URL"
               type="url"
-              name="url"
-              {...register("url", { required: true })}
+              name="photo"
+              {...register("photo", { required: true })}
             />
 
-            {errors.url && (
+            {errors.photo && (
               <span className="text-red-600">This field is required</span>
             )}
           </div>

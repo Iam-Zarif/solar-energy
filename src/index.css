@@ -27,3 +27,9 @@ background: linear-gradient(90deg, rgba(12,103,140,1) 18%, rgba(9,54,94,1) 83%);
   border-radius: 5px;
   padding: 1px 5px;
 }
+body{
+    background: rgb(84, 127, 237);
+    background: linear-gradient(90deg, rgba(71, 183, 238, 0.14) 11%, rgba(246, 246, 246, 0.04805672268907568) 58%);
+    
+    
+}

@@ -20,6 +20,20 @@ import { useEffect } from "react";
 import DynamicTestimonials1 from "./DynamicTestimonials1";
 
 const Testimonials = () => {
+  const [UserInfo, setUserInfo] = useState([]);
+    useEffect(() => {
+      fetch("http://localhost:2000/userInfo")
+        .then((res) => res.json())
+        .then((data) => {
+          setUserInfo(data);
+          console.log(data);
+        });
+    }, []);
+    
+     UserInfo.map((userInfo) => {<img src={userInfo?.image} key={userInfo._id}></img>
+  
+  });
+    
   const [feedbacks, setfeedbacks] = useState([]);
   useEffect(() => {
     fetch("http://localhost:2000/feedback")
@@ -29,8 +43,9 @@ const Testimonials = () => {
         console.log(data);
       });
   }, []);
+
   return (
-    <div className="bg-sky-50 mt-32 h-full py-12 ">
+    <div className=" mt-32 h-full py-12 ">
       
       <HomeContainer>
         <div className="">
@@ -48,9 +63,22 @@ const Testimonials = () => {
           <SwiperSlide>
               <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
 
-             {feedbacks.slice(3, 6).map((Feedback) =>{
+             {feedbacks.slice(0, 3).map((Feedback) =>{
               return(
                 <DynamicTestimonials1 key={Feedback._id} Feedback={Feedback}/>
+              )
+             })}
+
+               
+               
+              </div>
+            </SwiperSlide>
+          <SwiperSlide>
+              <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
+
+             {feedbacks.slice(3, 6).map((Feedback) =>{
+              return(
+                <DynamicTestimonials1 UserInfo={UserInfo} key={Feedback._id} Feedback={Feedback}/>
               )
              })}
 
@@ -72,19 +100,7 @@ const Testimonials = () => {
                
               </div>
             </SwiperSlide>
-            <SwiperSlide>
-              <div className="grid lg:grid-cols-3 grid-cols-1   lg:pb-72">
-
-             {feedbacks.slice(0, 3).map((Feedback) =>{
-              return(
-                <DynamicTestimonials1 key={Feedback._id} Feedback={Feedback}/>
-              )
-             })}
-
-               
-               
-              </div>
-            </SwiperSlide>
+            
            
             
           </Swiper>

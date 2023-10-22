@@ -27,6 +27,9 @@ const BioTab = ({User, UserInfo}) => {
         </div>
       </div>
       <div>
+        <div>
+            <p>Submit your Information to the right tab</p>
+        </div>
       
         {
             UserInfo?.map((user) =>{
