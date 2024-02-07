@@ -11,7 +11,7 @@ const InfoTabs = () => {
   const [UserInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:2000/userInfoEmail`)
+    fetch(`https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/userInfoEmail`)
       .then((res) => res.json())
       .then((data) => {
         setUserInfoEmail(data);
@@ -25,7 +25,7 @@ const InfoTabs = () => {
       );
       
       if (matchingUser) {
-        fetch(`http://localhost:2000/userInfoEmail?email=${matchingUser.email}`)
+        fetch(`https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/userInfoEmail?email=${matchingUser.email}`)
           .then((res) => res.json())
           .then((data) => {
             setUserInfo(data);

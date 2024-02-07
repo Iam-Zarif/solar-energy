@@ -22,7 +22,7 @@ import DynamicTestimonials1 from "./DynamicTestimonials1";
 const Testimonials = () => {
   const [UserInfo, setUserInfo] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:2000/userInfo")
+      fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/userInfo")
         .then((res) => res.json())
         .then((data) => {
           setUserInfo(data);
@@ -36,7 +36,7 @@ const Testimonials = () => {
     
   const [feedbacks, setfeedbacks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:2000/feedback")
+    fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => {
         setfeedbacks(data);

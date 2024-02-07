@@ -7,7 +7,7 @@ import HomeContainer from "../../Container/HomeContainer";
 const RsProjects = () => {
   const [Projects, setProjects] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:2000/projects")
+    fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/projects")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);

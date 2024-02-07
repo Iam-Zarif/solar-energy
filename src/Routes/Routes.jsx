@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         path: "/benefits/:id",
         element: <AdvantagesDynamicPage/>,
         loader: ({params})  => 
-        fetch(`http://localhost:2000/benefits/${params.id}`)
+        fetch(`https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/benefits/${params.id}`)
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         path: "/residentialSolar/:id",
         element: <DynamicProjects />,
         loader: ({ params }) =>
-          fetch(`http://localhost:2000/projects/${params.id}`),
+          fetch(`https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/projects/${params.id}`),
       },
      
     ],

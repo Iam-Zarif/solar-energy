@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const Infos = ({User}) => {
     const [UserInfo, setUserInfo] = useState("");
     useEffect(() => {
-      fetch("http://localhost:2000/userInfo")
+      fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/userInfo")
         .then((res) => res.json())
         .then((data) => {
           setUserInfo(data);

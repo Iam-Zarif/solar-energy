@@ -81,7 +81,7 @@ const SubmitInfo = () => {
     toast.error("Please Give valid email address");
     return;
    }
-    fetch("http://localhost:2000/userInfo", {
+    fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/userInfo", {
           method: "POST",
           headers:{
             "content-type": "application/json",

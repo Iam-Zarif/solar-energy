@@ -64,7 +64,7 @@ const ContactForm = () => {
         const feedbackInfo = {
           name, email, number, feedback, occupation
         }
-        fetch("http://localhost:2000/feedback", {
+        fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/feedback", {
           method: "POST",
           headers:{
             "content-type": "application/json",

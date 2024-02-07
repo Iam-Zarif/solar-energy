@@ -6,7 +6,7 @@ import AdvantagesCard from "./AdvantagesCard";
 const Advantages = () => {
   const [Benefits, setBenefits] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:2000/benefits")
+    fetch("https://solar-panel-server-ecjps02r4-iam-zarif.vercel.app/benefits")
       .then((res) => res.json())
       .then((data) => {
         setBenefits(data);
